@@ -34,16 +34,21 @@ public class Player extends Entity{
 	public void getPlayerImage() {
 		
 		try {
-			pic1 = ImageIO.read(getClass().getResource("/player/anh1.png"));
-			pic2 = ImageIO.read(getClass().getResource("/player/anh2.png"));
-			pic3 = ImageIO.read(getClass().getResource("/player/anh3.png"));
-			pic4 = ImageIO.read(getClass().getResource("/player/anh4.png"));
-			pic5 = ImageIO.read(getClass().getResource("/player/anh5.png"));
-			pic6 = ImageIO.read(getClass().getResource("/player/anh6.png"));
-			pic7 = ImageIO.read(getClass().getResource("/player/anh7.png"));
-
+			up1 = ImageIO.read(getClass().getResource("/player/up_1.png"));
+			up2 = ImageIO.read(getClass().getResource("/player/up_2.png"));
+			up3 = ImageIO.read(getClass().getResource("/player/up_3.png"));
+			down1 = ImageIO.read(getClass().getResource("/player/down_1.png"));
+			down2 = ImageIO.read(getClass().getResource("/player/down_2.png"));
+			down3 = ImageIO.read(getClass().getResource("/player/down_3.png"));
+			left1 = ImageIO.read(getClass().getResource("/player/left_1.png"));
+			left2 = ImageIO.read(getClass().getResource("/player/left_2.png"));
+			left3 = ImageIO.read(getClass().getResource("/player/left_3.png"));
+			right1 = ImageIO.read(getClass().getResource("/player/right_1.png"));
+			right2 = ImageIO.read(getClass().getResource("/player/right_2.png"));
+			right3 = ImageIO.read(getClass().getResource("/player/right_3.png"));
+	
 		} catch (IOException e) {
-			// TODO: handle exception
+			// TODO: handle exception 
 			e.printStackTrace();
 		}
 	}
@@ -68,10 +73,12 @@ public class Player extends Entity{
 			}
 			
 			spriteCounter ++;
-			if(spriteCounter>12) {
+			if(spriteCounter>5) {
 				if(spriteNum == 1 ) {
 					spriteNum = 2;
 				} else if(spriteNum == 2) {
+					spriteNum = 3;
+				} else if(spriteNum == 3) {
 					spriteNum = 1;
 				}
 				spriteCounter  = 0;
@@ -82,38 +89,56 @@ public class Player extends Entity{
 	
 	public void draw(Graphics2D g2) {
 //		g2.setColor(Color.white);
-//		g2.fillRect(x	, y,gp.titleSize, gp.titleSize);
+//		g2.fillRect(x	, y,gp.tileSize, gp.tileSize);
 		BufferedImage image = null;
 		switch (direction) {
 		case "up": {
 			if (spriteNum == 1) {
-				image = pic1;
+				image = up1;
 			}
 			if(spriteNum == 2) {
-				image = pic2;
+				image = up2;
+			}
+			if(spriteNum == 3) {
+				image = up3;
 			}
 			break;
 		}
 		case "down": {
-			image = pic7;
+			if (spriteNum == 1) {
+				image = down1;
+			}
+			if(spriteNum == 2) {
+				image = down2;
+			}
+			if(spriteNum == 3) {
+				image = down3;
+			}
 			break;
 		}
 		case "left": {
 			if (spriteNum == 1) {
-				image = pic3;
+				image = left1;
 			}
-			if(spriteNum == 2) {
-				image = pic4;
+			else if(spriteNum == 2) {
+				image = left2;
+			}
+			else if(spriteNum == 3) {
+				image = left3;
 			}
 			break;
 		}
 		case "right": {
 			if (spriteNum == 1) {
-				image = pic5;
+				image = right1;
 			}
-			if(spriteNum == 2) {
-				image = pic6;
+			else if(spriteNum == 2) {
+				image = right2;
 			}
+			else if(spriteNum == 3) {
+				image = right2;
+			}
+			
 			break;
 		}
 		default:

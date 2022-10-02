@@ -7,7 +7,7 @@ public class Entity {
 	public int x, y;
 	public int speed;
 	
-	public BufferedImage pic1, pic2, pic3, pic4, pic5, pic6, pic7;
+	public BufferedImage up1, up2, up3, down1, down2, down3, donw4, left1, left2,left3, left4,right1, right2, right3;
 	
 	public String direction;
 	
